@@ -1,0 +1,58 @@
+.user-details-container{
+    border:1px solid red;
+    flex-grow:1;
+    display:flex;
+    flex-direction: column;
+}
+.users-unorder-list-container{
+  list-style: none;
+  padding: 0px;
+  margin:0px;
+  display: flex;
+  flex-direction: column;
+  flex-grow:1;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  width: 100%;
+}
+.users-list-item{
+  display: flex;
+  border:1px solid white;
+}
+.initial-list-para{
+    font-weight: bold;
+}
+
+.users-list-item p{
+  text-align: start;
+  border-right: 1px solid white ;
+  overflow-wrap:break-word;
+  padding:5px;
+  margin:0px;
+}
+
+.id-list-item{
+  width:15%;
+}
+
+.name-list-item{
+  width:35%;
+}
+
+.email-list-item{
+  width:35%;
+}
+
+
+.remove-button{
+  background-color: transparent;
+  border-radius: 50%;
+  border:none;
+  margin:auto;
+  height: 30px;
+  width: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  color:white;
+  
+}

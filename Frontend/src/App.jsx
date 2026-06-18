@@ -1,9 +1,7 @@
-import HomePage from './pages/HomePage'
+import HomePage from './pages/Homepage/HomePage'
 
 const App = ()=>{
-  
     return <HomePage/>
-
 }
 
 export default App
