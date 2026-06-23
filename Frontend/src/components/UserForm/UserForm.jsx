@@ -10,7 +10,7 @@ const UserForm = (props) =>{
     
     const addUser = () => onAddUser()
 
-    const updateUser = () => onUpdateUser()
+    const updateUser = () => onUpdateUser(id)
 
     
     const changeName = (event) => onChangeName(event.target.value)

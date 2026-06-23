@@ -38,10 +38,30 @@ const HomePage = () => {
 
   const onChangeId = setId
 
+
+  const getUserDetails = () => {}
+
   const onAddUser = () => {
+    
+    const newId = users.length
+    const newUserDetails = {id:newId+1,name,email}
+    setUsers(prevState => ([...prevState,newUserDetails]))
+    setId("")
+    setName("")
+    setEmail("")
   }
 
-  const onUpdateUser = () => {
+  const onUpdateUser = (id) => {
+    const updatedData = users.map(eachUser => eachUser.id == id ? ({id,name,email}):eachUser)
+    setUsers(updatedData)
+    setId("")
+    setName("")
+    setEmail("")
+  }
+
+  const deleteTheUser = (id) => {
+    const updatedData = users.filter(eachUser => eachUser.id !== id)
+    setUsers(updatedData)
   }
 
   return(
@@ -58,7 +78,7 @@ const HomePage = () => {
               onAddUser = {onAddUser}
               onUpdateUser = {onUpdateUser}
               />
-            <UserTabel usersList={users}/>
+            <UserTabel usersList={users} deleteTheUser={deleteTheUser}/>
           </div>
       </div>
     )
