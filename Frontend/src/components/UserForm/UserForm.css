@@ -3,21 +3,56 @@
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
-  height:200px;
   margin:10px 0px;
+  border:1px solid white;
+  padding:5px;
+}
+.form-open-button{
+  height:30px;
+  width:80px;
+  color:white;
+  border:1px solid white;
+  background-color: transparent;
+  border-radius: 8px;
+  align-self: flex-end;
+  margin:5px 0px;
+}
+.form-close-button{
+  height:30px;
+  width:80px;
+  color:white;
+  border:1px solid white;
+  background-color: transparent;
+  border-radius: 8px;
+  align-self: flex-end;
+  margin:5px 0px;
 }
 .input-container div{
   width: 100%;
-  margin-bottom: 10px;
   text-align: start;
   display:flex;
+}
+.input-field-container{
+  display:flex;
+  flex-direction: column;
+  height:45px;
+}
+.input-field-card{
+  margin:0px;
+}
+.enter-error-text{
+  margin:0px;
+  font-size:10px;
+  color:red;
+  margin-left:65px;
 }
 .text-label-element{
   display:block;
   font-weight: bold;
-  width:70px;
+  width:55px;
   margin-right: 5px;
   padding-top:5px;
+  
 }
 .text-input{
 padding:8px;
@@ -26,27 +61,41 @@ color:black;
 font-weight: bold;
 border:none;
 border-radius: 6px;
+outline: none;
 }
 
 .user-button{
   background-color:blue;
-  padding:10px;
+  color:white;
+  cursor:pointer;
+  padding:6px;
   border:8px;
   border-radius: 6px;
-  width:100px;
-  height: 35px;
+  width:120px;
+  height: 30px;
   font-weight: bold;
+  font-size:12px;
+  align-self:flex-end;
 }
 .checkbox-input-container{
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size:12px;
+}
+.checkbox-input-card{
+  display:flex;
   align-items: center;
 }
 .checkbox-label{
   font-weight: bold;
+  cursor:pointer;
 }
 .checkbox-input{
   margin-right:20px;
   height:18px;
   width:18px;
   margin-left:5px;
+  cursor:pointer;
 }

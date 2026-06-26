@@ -7,6 +7,7 @@
 
 .homePage-main-container{
   height:100vh;
+  max-height: 100vh;
   background-color: black;
   color:white;
   display:flex;
@@ -23,6 +24,8 @@
 
 .homePage-main-heading{
     text-align:center;
+    font-size: 16px;
+    margin:0px;
 }
 
 

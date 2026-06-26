@@ -1,10 +1,12 @@
+import { useState } from 'react'
 
 import UserRow from '../UserRow/UserRow.jsx'
 import './UserTabel.css'
 
 const UserTabel = (props) => {
-    const {usersList,deleteTheUser} = props
+    const {usersList=[],deleteTheUser} = props
     const deleteUser = (id) => deleteTheUser(id)
+
     return(
         <div className='user-details-container'>
             <ul className="users-unorder-list-container">
@@ -14,7 +16,9 @@ const UserTabel = (props) => {
                 <p className='email-list-item initial-list-para'>EMAIL</p>
               </li>
               {usersList.map(eachUserDetails => (
-                  <UserRow eachUserDetails={eachUserDetails} deleteUser={deleteUser} key={eachUserDetails.id}/>
+                  <UserRow eachUserDetails={eachUserDetails}
+                    deleteUser={deleteUser}
+                    key={eachUserDetails.id}/>
                 ))}
             </ul>
         </div>

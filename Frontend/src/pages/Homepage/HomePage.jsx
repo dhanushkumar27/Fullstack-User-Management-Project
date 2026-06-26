@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 
 import UserForm from '../../components/UserForm/UserForm.jsx'
 import UserTabel from '../../components/UserTabel/UserTabel.jsx'
@@ -12,16 +12,7 @@ import {
 import './HomePage.css'
 
 const HomePage = () => {
-  const [users, setUsers] = useState([{
-    id: 1,
-    name: "Raju",
-    email: "raju@gmail.com"
-  },
-  {
-    id: 2,
-    name: "Kiran",
-    email: "kiran@gmail.com"
-  }])
+  const [users, setUsers] = useState([])
   const [name, setName] = useState("")
   const [id, setId] = useState("")
   const [email, setEmail] = useState("")
@@ -38,31 +29,45 @@ const HomePage = () => {
 
   const onChangeId = setId
 
+   const getUserDetails = async () => {
+    const data = await getUsers()
+    setUsers(data)
+  }
 
-  const getUserDetails = () => {}
 
-  const onAddUser = () => {
+  useEffect(()=>{
+    getUserDetails();
+  },[])
+
+ 
+
+  const onAddUser = async () => {
+    const userDetails = {name,email}
+    await createUser(userDetails)
+    setEmail("")
+    setName("")
+    getUserDetails()
+
+  }
+
+  const onUpdateUser = async (updatedUser) => {
+   
+      await updateUser(updatedUser)
+      setEmail("")
+      setName("")
+      setId("")
+      getUserDetails()
+      }
     
-    const newId = users.length
-    const newUserDetails = {id:newId+1,name,email}
-    setUsers(prevState => ([...prevState,newUserDetails]))
-    setId("")
-    setName("")
-    setEmail("")
+  
+
+  const deleteTheUser = async (id) => {
+    
+    await deleteUser(id)
+
+    getUserDetails()
   }
 
-  const onUpdateUser = (id) => {
-    const updatedData = users.map(eachUser => eachUser.id == id ? ({id,name,email}):eachUser)
-    setUsers(updatedData)
-    setId("")
-    setName("")
-    setEmail("")
-  }
-
-  const deleteTheUser = (id) => {
-    const updatedData = users.filter(eachUser => eachUser.id !== id)
-    setUsers(updatedData)
-  }
 
   return(
       <div className='homePage-main-container'>
@@ -72,17 +77,20 @@ const HomePage = () => {
               name={name}
               id={id}
               email={email}
+              users={users}
               onChangeName={onChangeName}
               onChangeEmail={onChangeEmail}
               onChangeId={onChangeId}
               onAddUser = {onAddUser}
               onUpdateUser = {onUpdateUser}
+              
               />
             <UserTabel usersList={users} deleteTheUser={deleteTheUser}/>
           </div>
       </div>
     )
 
-}
+  }
+
 
 export default HomePage

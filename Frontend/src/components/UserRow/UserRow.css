@@ -1,0 +1,20 @@
+.users-list-item{
+  display: flex;
+  border-bottom:1px solid white;
+}
+
+.id-list-item{
+  width:15%;
+}
+
+.name-list-item,
+.email-list-item{
+  width:35%;
+}
+
+.collapsed{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
